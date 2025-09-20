@@ -1,0 +1,181 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* SAMOS Browser Design System - Modern, Privacy-Focused, Performance-Optimized */
+
+@layer base {
+  :root {
+    /* SAMOS Brand Colors */
+    --samos-dark-blue: 220 65% 7%;  /* #0F172A */
+    --samos-blue: 214 88% 51%;      /* #2563EB */
+    --samos-cyan: 187 85% 53%;      /* #22D3EE */
+    --samos-light: 217 33% 97%;     /* #F8FAFC */
+    --samos-dark: 222 47% 6%;       /* #0B1120 */
+    
+    /* Core System Colors */
+    --background: 217 33% 97%;       /* Light background */
+    --foreground: 220 65% 7%;        /* SAMOS dark blue text */
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 65% 7%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 65% 7%;
+
+    --primary: 220 65% 7%;           /* SAMOS dark blue */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 214 32% 91%;
+    --secondary-foreground: 220 65% 7%;
+
+    --muted: 214 32% 91%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 187 85% 53%;           /* SAMOS cyan */
+    --accent-foreground: 220 65% 7%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 214 88% 51%;
+
+    --radius: 0.75rem;
+
+    /* SAMOS Gradients */
+    --gradient-brand: linear-gradient(135deg, hsl(var(--samos-blue)), hsl(var(--samos-cyan)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--samos-dark-blue)), hsl(var(--samos-blue)));
+    --gradient-card: linear-gradient(145deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+    
+    /* Animation Variables */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-spring: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    
+    /* Shadows */
+    --shadow-glow: 0 0 40px hsla(var(--samos-blue), 0.15);
+    --shadow-card: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --shadow-button: 0 4px 14px 0 hsla(var(--samos-blue), 0.25);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Dark Mode - SAMOS Dark Theme */
+    --background: 222 47% 6%;        /* SAMOS dark background */
+    --foreground: 217 33% 97%;       /* SAMOS light text */
+
+    --card: 220 50% 10%;
+    --card-foreground: 217 33% 97%;
+
+    --popover: 220 50% 10%;
+    --popover-foreground: 217 33% 97%;
+
+    --primary: 217 33% 97%;
+    --primary-foreground: 220 65% 7%;
+
+    --secondary: 220 40% 15%;
+    --secondary-foreground: 217 33% 97%;
+
+    --muted: 220 40% 15%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 187 85% 53%;           /* SAMOS cyan */
+    --accent-foreground: 220 65% 7%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 217 33% 97%;
+
+    --border: 220 40% 15%;
+    --input: 220 40% 15%;
+    --ring: 214 88% 51%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+}
+
+@layer components {
+  /* SAMOS Browser Component Styles */
+  .gradient-brand {
+    background: var(--gradient-brand);
+  }
+  
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+  
+  .gradient-text {
+    background: var(--gradient-brand);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+  
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+  
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+  
+  .transition-spring {
+    transition: var(--transition-spring);
+  }
+
+  /* Animated Elements */
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+
+  /* Browser Mockup Styles */
+  .browser-mockup {
+    background: var(--gradient-card);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes glow {
+  from { box-shadow: 0 0 20px hsla(var(--samos-blue), 0.2); }
+  to { box-shadow: 0 0 30px hsla(var(--samos-cyan), 0.4); }
+}
